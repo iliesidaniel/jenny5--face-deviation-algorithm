@@ -33,8 +33,8 @@ void track_point(Point center);
 void staticDraw (Mat *frame);
 
 
-string nestedCascadeName = "haarcascade_eye_tree_eyeglasses.xml";
-string cascadeName = "haarcascade_frontalface_alt.xml";
+string nestedCascadeName = "../haarcascade_eye_tree_eyeglasses.xml";
+string cascadeName = "../haarcascade_frontalface_alt.xml";
 
 
 int main()
