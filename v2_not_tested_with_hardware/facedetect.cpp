@@ -16,8 +16,8 @@
 #include <cctype>
 
 
-#define CAPTURE_HEIGHT 480
 #define CAPTURE_WIDTH 640
+#define CAPTURE_HEIGHT 480
 
 
 using namespace std;
@@ -184,7 +184,7 @@ void detectAndDraw( Mat& img, CascadeClassifier& cascade,
 	circle( img, face_center, 4, Scalar( 0, 255, 0 ), 10, 8 );
 	circle( img, face_center, face_radius, Scalar(255, 0, 0 ), 3, 8, 0 );
 
-	tracking_data deviation = get_offset_angles (920, 4/3, CAPTURE_WIDTH, CAPTURE_HEIGHT, face_center);
+	tracking_data deviation = get_offset_angles (920, face_center);
 
 	printf("\n====================================================================\n");
 	printf("Horizontal position of the point : %d\n", face_center.x);

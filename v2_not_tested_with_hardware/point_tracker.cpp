@@ -31,6 +31,24 @@ tracking_data get_offset_angles(int webcam_model_number, float image_ratio, int 
 	return deviation;
 }
 
+tracking_data get_offset_angles(int webcam_model_number, Point position)
+{
+	tracking_data deviation;
+
+	if (webcam_model_number == 910)
+	{
+		deviation.grades_from_center_x = determine_offset_angle(position.x, C910_4_3_HORIZONTAL_FIELD_OF_VIEW, 640);
+		deviation.grades_from_center_y = determine_offset_angle(position.y, C910_4_3_VERTICAL_FIELD_OF_VIEW, 480);
+	}
+	else if (webcam_model_number == 920)
+	{
+		deviation.grades_from_center_x = determine_offset_angle(position.x, C920_4_3_HORIZONTAL_FIELD_OF_VIEW, 640);
+		deviation.grades_from_center_y = determine_offset_angle(position.y, C920_4_3_VERTICAL_FIELD_OF_VIEW, 480);
+	}
+
+	return deviation;
+}
+
 float determine_offset_angle(int position, float field_of_view, int number_of_pixels)
 {
 	float pixel_one_percent = (float)number_of_pixels / 100;

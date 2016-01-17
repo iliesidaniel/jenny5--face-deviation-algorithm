@@ -28,6 +28,8 @@ struct	tracking_data
 
 tracking_data get_offset_angles(int webcam_model_number, float image_ratio, int image_width, int image_height, Point position);
 
+tracking_data get_offset_angles(int webcam_model_number, Point position);
+
 float determine_offset_angle(int position, float field_of_view, int number_of_pixels);
 
 
