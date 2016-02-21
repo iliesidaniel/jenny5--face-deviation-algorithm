@@ -86,7 +86,7 @@ int main(int argc, char** argv)
 
 		cvtColor(imgOriginal, imgHSV, COLOR_BGR2HSV);
 
-		Mat imgThresholded, imgTmp;
+		Mat imgThresholded;
 
 		inRange(imgHSV, Scalar(iLowH, iLowS, iLowV), Scalar(iHighH, iHighS, iHighV), imgThresholded);
 
@@ -98,7 +98,6 @@ int main(int argc, char** argv)
 		dilate(imgThresholded, imgThresholded, getStructuringElement(MORPH_ELLIPSE, Size(6, 6)));
 		erode(imgThresholded, imgThresholded, getStructuringElement(MORPH_ELLIPSE, Size(6, 6)));
 
-		imgTmp = imgThresholded;
 		std::vector< std::vector<cv::Point> > contours;
 		std::vector<cv::Point> points;
 		cv::findContours(imgThresholded, contours, CV_RETR_LIST, CV_CHAIN_APPROX_NONE);
@@ -142,7 +141,7 @@ int main(int argc, char** argv)
 			cout << "\t distanta :  " << distance3;
 		}
 
-		imshow("Thresholded Image", imgTmp); 
+		imshow("Thresholded Image", imgThresholded); 
 		imshow("Original", imgOriginal);
 
 		if (waitKey(30) == 27)
